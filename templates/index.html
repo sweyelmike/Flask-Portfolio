@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.name }} | AI & Full-Stack Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{{ data.name }}</h1>
+            <nav>
+                <a href="#about"><i class="fas fa-user-graduate"></i> About</a>
+                <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+                <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
+                <a href="#internships"><i class="fas fa-briefcase"></i> Internships</a>
+                <a href="{{ url_for('contact') }}" class="cta-button">Contact Me</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- HERO / OBJECTIVE SECTION -->
+        <section id="hero" class="card hero-section">
+            <h2>MCA Graduate & Aspiring Professor</h2>
+            <p class="objective">{{ data.objective }}</p>
+            <div class="contact-info">
+                <a href="mailto:{{ data.email }}"><i class="fas fa-envelope"></i> {{ data.email }}</a>
+                <a href="tel:{{ data.phone }}"><i class="fas fa-phone"></i> {{ data.phone }}</a>
+                <a href="https://linkedin.com/in/{{ data.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="about" class="card">
+            <h2><i class="fas fa-graduation-cap"></i> Education & Achievements</h2>
+            <div class="education-grid">
+                {% for edu in data.education %}
+                <div class="education-item">
+                    <h3>{{ edu.degree }}</h3>
+                    <p class="institution">{{ edu.institution }}</p>
+                    <p class="period">{{ edu.period }} | <strong>{{ edu.score }}</strong></p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="achievements">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Participated in <b>Agentic AI Hackathon</b> (Google Cloud) and <b>GenAI Hackathon</b> (Hack2Skill).</li>
+                    <li>Completed <b>COA Exam</b> with distinction (Tamil Nadu Government).</li>
+                    <li>Student Ambassador for Internshala and Let's Upgrade.</li>
+                    <li>District Level TANSACS Quiz Competition - Winner-up.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section id="skills" class="card">
+            <h2><i class="fas fa-code"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Web</h3>
+                    <ul>{% for skill in data.skills.languages %}<li>{{ skill }}</li>{% endfor %}</ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Tools</h3>
+                    <ul>
+                        {% for db in data.skills.databases %}<li>{{ db }}</li>{% endfor %}
+                        {% for tool in data.skills.frameworks_tools %}<li>{{ tool }}</li>{% endfor %}
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & GenAI Expertise</h3>
+                    <ul>{% for ai in data.skills.ai_ml %}<li>{{ ai }}</li>{% endfor %}</ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Certifications</h3>
+                    <ul>{% for cert in data.certifications %}<li>{{ cert }}</li>{% endfor %}</ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="card">
+            <h2><i class="fas fa-rocket"></i> Featured Projects</h2>
+            <div class="project-list">
+                {% for project in data.projects %}
+                <div class="project-card">
+                    <h4>{{ project.title }} ({{ project.year }})</h4>
+                    <p>{{ project.description }}</p>
+                    <a href="#" class="project-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- INTERNSHIPS SECTION -->
+        <section id="internships" class="card">
+            <h2><i class="fas fa-briefcase"></i> Internships</h2>
+            <div class="internship-list">
+                {% for intern in data.internships %}
+                <div class="internship-item">
+                    <h3>{{ intern.role }}</h3>
+                    <p class="company">{{ intern.company }}</p>
+                    <p class="period">{{ intern.period }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 {{ data.name }}. Designed for an Internship Task. | Built with Flask & Python.</p>
+    </footer>
+</body>
+</html>

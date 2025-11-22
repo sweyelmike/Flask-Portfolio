@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Success!</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="confirmation" class="card" style="text-align: center;">
+            <h2><i class="fas fa-check-circle" style="color: green; margin-right: 10px;"></i> Message Received!</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Thank you for reaching out. I have received your message and will respond as soon as possible.
+            </p>
+            <p>
+                <a href="{{ url_for('index') }}" class="cta-button" style="padding: 10px 20px; text-decoration: none;">Return to Home Page</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SWETHA. M. Built with Flask, HTML & CSS.</p>
+    </footer>
+</body>
+</html>
