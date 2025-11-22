@@ -73,6 +73,8 @@ python app.py
 Go to:
 👉 **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
 
+![Output Screenshot](https://github.com/sweyelmike/Flask-Portfolio/blob/main/Screenshot%202025-11-22%20212358.png)
+
 ---
 
 
